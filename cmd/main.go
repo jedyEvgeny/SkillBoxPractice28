@@ -1,16 +1,12 @@
 package main
 
 import (
-	"fmt"
-
-	sto "28/pkg/storage"
+	"28/pkg/app"
+	str "28/pkg/storage"
 )
 
 func main() {
-	studentsStorage := sto.NewStorage()
-	studentsStorage.Get()
-	fmt.Println("--------------------")
-	fmt.Println("Имена всех студентов:")
-	fmt.Println("--------------------")
-	studentsStorage.Print()
+	studentStorage := str.New()
+	app.Run(studentStorage)
+	studentStorage.PrintAllStudents()
 }
