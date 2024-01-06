@@ -16,12 +16,12 @@ func NewMemoryRepository() *MemoryRepository {
 	return NewRepository
 }
 
-func (m *MemoryRepository) Get() ([]*std.Student, error) {
+func (m *MemoryRepository) Get() []*std.Student {
 	var students []*std.Student
 	for _, value := range m.studentsKeyName {
 		students = append(students, value)
 	}
-	return students, nil
+	return students
 }
 
 func (m *MemoryRepository) Put(student *std.Student) (err error) { //Получаем указатель на структуру Студент

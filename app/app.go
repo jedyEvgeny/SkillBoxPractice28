@@ -12,8 +12,8 @@ import (
 )
 
 type DataStore interface {
-	Put(*std.Student) error       //Передаём указатель на экземпляр структуры Студент
-	Get() ([]*std.Student, error) //Получаем массив из указателей на экземпляры структур Студент
+	Put(*std.Student) error //Передаём указатель на экземпляр структуры Студент
+	Get() []*std.Student    //Получаем массив из указателей на экземпляры структур Студент
 }
 
 type App struct {
@@ -60,11 +60,7 @@ func (a *App) inputingStudent() {
 }
 
 func (a *App) printStudents() {
-	students, err := a.cache.Get()
-	if err != nil {
-		fmt.Println("Ошибка при получении данных: ", err)
-		return
-	}
+	students := a.cache.Get()
 	fmt.Println("----------------")
 	fmt.Println("Список студентов:")
 	for _, v := range students {
