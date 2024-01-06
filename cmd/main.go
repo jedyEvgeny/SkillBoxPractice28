@@ -1,12 +1,12 @@
 package main
 
 import (
-	"28/pkg/app"
-	str "28/pkg/storage"
+	"28/app"
+	rep "28/repository"
 )
 
 func main() {
-	studentStorage := str.New()
-	app.Run(studentStorage)
-	studentStorage.PrintAllStudents()
+	repository := rep.NewMemoryRepository()
+	app := app.New(repository)
+	app.Make()
 }
